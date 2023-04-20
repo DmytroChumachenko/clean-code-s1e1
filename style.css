@@ -32,6 +32,10 @@
   width: 500px;
   margin: 0 auto 0;
 }
+.add-item,
+.todo {
+  margin-top: 13px;
+}
 
 .task {
   width: 56%;
@@ -41,6 +45,7 @@
 
 .task-row__wrapper {
   display: flex;
+  padding-top: 20px;
 }
 
 ul {

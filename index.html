@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo App</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="./style.css" >
 </head>
 
 <body class="body">
@@ -19,8 +19,9 @@
   </header>
   <main class="main">
     <section class="add-item">
+      <h3 class="h3-title">Add Item</h3>
       <div id="add-block__content"> <!-- id="topSectionForAddingElementToList"-->
-        <label class="label-new-task" for="new-task">Add Item</label>
+        <!-- <label class="label-new-task" for="new-task">Add Item</label> -->
         <div class="task-row__wrapper"><!-- class="task-row-wrapper"-->
           <input class="input-new-task input-task task" id="new-task" type="text" name="new-task"><!-- class="task"-->
           <button class="add-block__btn">Add</button>
@@ -32,8 +33,8 @@
       <ul class="todo__list" id="incompleted-list"> <!-- class="incompleteTasks"-->
         <li class="todo__list-item list-item">
           <input class="input-checkbox" type="checkbox">
-          <label class="label-task task" for="bills">Pay Bills</label>
-          <input class="todo__input-task input-task task" type="text" name="bills">
+          <label class="label-task task" for="task">Pay Bills</label>
+          <input class="todo__input-task input-task task" type="text" id="task">
           <button class="edit__btn">Edit</button>
           <button class="delete__btn">
             <img class="delete__img" src="./remove.svg" alt="remove">
@@ -41,8 +42,8 @@
         </li>
         <li class="todo__list-item list-item edit-mode"> <!-- class="editMode"-->   
           <input class="input-checkbox" type="checkbox">
-          <label class="label-task todo__label-task task" for="go-shopping">Go Shopping</label>
-          <input class="todo__input-task input-task task" type="text" name="go-shopping" value="Go Shopping">
+          <label class="label-task todo__label-task task" for="task">Go Shopping</label>
+          <input class="todo__input-task input-task task" type="text" name="task" value="Go Shopping">
           <button class="edit__btn">Save</button>
           <button class="delete__btn">
             <img class="delete__img" src="./remove.svg" alt="remove">
