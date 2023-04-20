@@ -8,7 +8,7 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-let taskInput=document.querySelector(".new-task");//Add a new task.
+let taskInput=document.querySelector(".input-new-task");//Add a new task.
 let addButton=document.querySelector(".add-block__btn");//first button
 let incompleteTaskHolder=document.querySelector("#incompleted-list");//ul of #incompleteTasks
 let completedTasksHolder=document.querySelector("#completed-list");//completed-tasks
@@ -18,7 +18,7 @@ let completedTasksHolder=document.querySelector("#completed-list");//completed-t
 let createNewTaskElement=function(taskString){
 
     let listItem=document.createElement("li");
-
+    listItem.classList.add("list-item");
     //input (checkbox)
     let checkBox=document.createElement("input");//checkbx
     //label
@@ -33,18 +33,21 @@ let createNewTaskElement=function(taskString){
     let deleteButtonImg=document.createElement("img");//delete button image
 
     label.innerText=taskString;
-    label.className='task';
+    label.classList.add("task", "label-task");
 
     //Each elements, needs appending
     checkBox.type="checkbox";
+    checkBox.classList.add("input-checkbox");
     editInput.type="text";
-    editInput.className="task";
+    editInput.classList.add("task", "input-task");
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit";
+    editButton.className="edit__btn";
 
-    deleteButton.className="delete";
+    deleteButton.className="delete__btn";
+    deleteButtonImg.classList.add("delete__img");
     deleteButtonImg.src='./remove.svg';
+    deleteButtonImg.alt='remove';
     deleteButton.appendChild(deleteButtonImg);
 
 
@@ -85,7 +88,7 @@ let editTask=function(){
     let editInput=listItem.querySelector('input[type=text]');
     let label=listItem.querySelector("label");
     let editBtn=listItem.querySelector(".edit__btn");
-    let containsClass=listItem.classList.contains("editMode");
+    let containsClass=listItem.classList.contains("edit-mode");
     //If class of the parent is .editmode
     if(containsClass){
 
@@ -99,7 +102,7 @@ let editTask=function(){
     }
 
     //toggle .editmode on the parent.
-    listItem.classList.toggle("editMode");
+    listItem.classList.toggle("edit-mode");
 };
 
 
@@ -121,6 +124,8 @@ let taskCompleted=function(){
 
     //Append the task list item to the #completed-tasks
     let listItem=this.parentNode;
+    listItem.classList.remove("todo__list-item");
+    listItem.classList.add("completed__list-item");
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 
@@ -133,6 +138,8 @@ let taskIncomplete=function(){
     //When the checkbox is unchecked
     //Append the task list item to the #incompleteTasks.
     let listItem=this.parentNode;
+    listItem.classList.add("todo__list-item");
+    listItem.classList.remove("completed__list-item");
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
 }
